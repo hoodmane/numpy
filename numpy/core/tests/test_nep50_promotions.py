@@ -6,6 +6,7 @@ is adopted in the main test suite.  A few may be moved elsewhere.
 
 import numpy as np
 import pytest
+from numpy.testing import IS_WASM
 
 
 @pytest.fixture(scope="module", autouse=True)
@@ -16,6 +17,7 @@ def _weak_promotion_enabled():
     np._set_promotion_state(state)
 
 
+@pytest.mark.skipif(IS_WASM, reason="wasm doesn't have support for fp errors")
 def test_nep50_examples():
     with pytest.warns(UserWarning, match="result dtype changed"):
         res = np.uint8(1) + 2
