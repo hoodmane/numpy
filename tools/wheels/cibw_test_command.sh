@@ -4,7 +4,7 @@ set -xe
 
 PROJECT_DIR="$1"
 
-python -m pip install threadpoolctl
+pip install threadpoolctl
 python -c "import numpy; numpy.show_config()"
 if [[ $RUNNER_OS == "Windows" ]]; then
     # GH 20391

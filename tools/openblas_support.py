@@ -28,6 +28,7 @@ SUPPORTED_PLATFORMS = [
     'win-32',
     'macosx-x86_64',
     'macosx-arm64',
+    "emscripten-wasm32",
 ]
 IS_32BIT = sys.maxsize < 2**32
 
